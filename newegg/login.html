@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新蛋登录</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body>
+		<div id="top">
+			<div class="margin">
+			<div class="top-l">
+				<a href="#">掌上新蛋</a>
+				<a href="#">企业用户</a>
+				<a href="#">入驻开放平台</a>
+			</div>
+			<div class="top-r">
+				<ul class="welcome">
+				<li><a href="#" class="wel-night">欢迎来<s class="uname"></s>新蛋购物！</a></li>
+				<li><a href="#" target="_blank">帮助中心</a></li>
+				<li class="service xiala"><i class="oper">客户服务<s></s></i>
+				<div class="inner toptip1">
+				    <div class="info">
+				        <p class="orange"><strong>400-820-4400</strong></p>
+				        <strong>021-67072699</strong>
+				        <p>每天 9:00 - 18:00</p>
+				    </div>
+				   <div class="lianxi">
+				   		<a href="#"><span>在线咨询</span></a>
+				   		<a href="#"><span>邮件我们</span></a>
+				   </div>
+				</div>
+				</ul>
+			</div>
+			</div>
+		</div>
+		
+		<header class="margin">
+			<a href="index.html" class="logo"><img src="img/logo.png"/></a>
+			<s>欢迎登录</s>
+		</header>
+		
+		<div id="login">
+			<div class="margin">
+				<a href="#">
+	        	<img class="l-logo" src="http://c1.neweggimages.com.cn/NeweggPic2/Marketing/201804/xinke0410/banresize/485x205.jpg" width="478" height="362"/></a>
+			
+			<div class="login-r">
+		    <form>
+			<div class="login-r-top">
+				<div class="login-title">
+					<h2>登录新蛋</h2>
+					<a href="register.html" class="newyh">注册新用户<s class="fts">&gt;&gt;</s></a>
+				</div>
+				<ul>
+					<li class="user">
+		                <s></s>
+						<input type="text" class="user" name="user" placeholder="用户名/已验证手机或邮箱" >
+					</li>
+					<li class="pwd">
+		                <s></s>
+						<input type="password" name="password" maxlength="50">
+					</li>
+		            
+				</ul>
+				<p class="tip"> <span></span></p>
+				<div class="login-op">
+		
+					<a href="#" class="fl" >账户安全</a>
+					<a href="#" class="fr">忘记密码？</a>
+				</div>
+		        <div class="login-btn">
+					<a href="#" style="color:#FFFFFF"><i>立即登录</i></a>
+		        </div>
+				</div>
+			    <input type="hidden" id="needcode" name="needcode" value="0">
+			    </form>
+		    
+				<div class="logoin-r">
+				<dl class="otherlogin">
+					<dt>您还可以使用以下合作伙伴的账户登录新蛋网：</dt>
+					<dd class="zfb">
+						<a href="#">支付宝</a></dd>
+					<dd class="qq">
+						<a href="#">QQ</a></dd>
+					<dd class="wx">
+						<a href="#">微信</a></dd>
+				</dl>
+				</div>
+			</div>
+				
+				
+				</div>
+			</div>
+		
+		<div id="footer-img">
+			<a href="#" class="item1"></a>
+			<a href="#" class="item2"></a>
+			<a href="#" class="item3"></a>
+			<a href="#" class="item4"></a>
+			<a href="#" class="item5"></a>
+		
+		 <p>新蛋集团网站：<a href="#" >美国新蛋</a><a href="#" >中国新蛋</a><a href="#" >加拿大新蛋</a><a href="#" >新蛋软件</a></p>
+		 <p><span>© 2001-2018</span> <span>新蛋商贸（上海）有限公司</span> <span>版权所有</span> <span><a href="#" >沪ICP备:16033615</a></span></p>
+		</div>
+	</body>
+	
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	
+	$(function(){
+		$(document).ajaxStart(function(){
+
+			$Img = $("<img src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488433789960&di=aed91615f003559ac1549b908d7b57a9&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01368e57c51bba0000018c1be96be9.gif'>")
+			$(".tip").children().html($Img);
+
+		})
+		var userid="";
+		$(".login-btn").click(function(){
+			//验证略;
+			var user = $("input[name=user]").val();
+			var password = $("input[name=password]").val();
+			
+			//ajax请求接口;
+			$.ajax({
+
+				url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+				type:"POST",
+				data:{
+					status:"login",
+					userID:user,
+					password:password
+				},
+				success:function(res){
+					
+					//成功之后做什么
+					switch(res){
+						case "0" : $(".tip").find("span").html("用户不存在,请注册");
+						break;
+						case "2": $(".tip").find("span").html("用户名和密码不符!!");
+						break;
+						default:$(".tip").find("span").html("登陆成功,我们稍微将为您跳转到购物页面");
+//						console.log(res);
+						userid=JSON.parse(res).userID;
+						console.log(res)
+						$.cookie("user",userid);
+						location.href="index.html"
+					}
+				},
+			})
+			
+			
+		})
+	})	
+	</script>
+</html>

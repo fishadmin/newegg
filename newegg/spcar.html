@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新蛋购物车</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/spcar.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="margin">
+			<a href="index.html" class="logo"><img src="img/logo.png"/></a>
+			
+			<div class="welcome">
+				<a href="register.html" target="_blank">注册</a><b>|</b>
+				<a href="login.html" target="_blank" class="xxx">登录</a>
+				<a href="#" class="wel-night">欢迎来新蛋购物！</a>
+				<img src="http://c2.neweggimages.com.cn/WebResources/2009/Default/Nest/shoppingcar/contact.jpg">
+				<p>江浙沪部分地区79元包邮，全国部分地区199元包邮。<a href="#" >查看详情</a></p>
+			</div>
+			</header>
+			
+			<div class="mycar margin">
+				<p><s>我的购物车</s><a href="activitygoods.html?#main">继续购物</a></p>
+				<table>
+				<thead>
+				<tr>
+					<th style="width: 200px;">商品图片</th>
+					<th  style="width: 300px;">商品名称</th>
+					<th  style="width: 120px;">单价</th>
+					<th width="60" >数量</th>
+					<th  style="width: 120px;">小计</th>
+					<th  style="width: 120px;">操作</th>
+				</tr>
+				</thead>
+				<tbody>
+					<!--<tr>
+						<td><img src=""/></td>
+						<td>名字</td>
+						<td>价格</td>
+						<td>1</td>
+						<td><em data-index="">删除</em></td>
+					</tr>-->
+				</tbody>
+			</table>
+			</div>
+			<div class="margin">
+				<a class="jiesuan" href="login.html">结算</a>
+			</div>
+			</div>
+		
+		
+		
+		
+		<div id="footer" class="margin">
+		 <p>新蛋集团网站：<a href="#" >美国新蛋</a><a href="#" >中国新蛋</a><a href="#" >加拿大新蛋</a><a href="#" >新蛋软件</a></p>
+		 <p><span>© 2001-2018</span> <span>新蛋商贸（上海）有限公司</span> <span>版权所有</span> <span><a href="#" >沪ICP备:16033615</a></span></p>
+		</div>
+		</div>
+	</body>
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script type="text/javascript">
+		
+		if($.cookie("user")){
+		var username=$.cookie("user")
+		$(".xxx").html(username);
+		$(".toptip").html("你好<br/>"+username);
+   		}
+		
+		class Car{
+			constructor(){
+				this.tbody = $("tbody");
+				this.load();
+				
+			}
+			load(){
+				var that = this;
+				$.ajax({
+					type:"get",
+					url:"data/goods.json",
+					dataType:"json",
+					success:function(res){
+						that.res = res;
+						that.display()
+						that.init()
+						that.remove()
+					}
+				});
+			}
+			display(){
+				var str = "";
+				this.shop = JSON.parse($.cookie("goods"));
+				
+				for(var i=0;i<this.res.length;i++){
+					for(var j=0;j<this.shop.length;j++){
+						if(this.res[i].goodsId == this.shop[j].id){
+						
+				str += `<tr data-index="${this.res[i].goodsId}">
+				<td><img src="${this.res[i].src}"/></td>
+				<td>${this.res[i].info}</td>
+				<td>${this.res[i].price}</td>
+				<td>
+					<input type="number" value="${this.shop[j].num}" min="1">
+				</td>
+				<td>${this.res[i].price*this.shop[j].num}.00</td>
+				<td><em>删除</em></td>
+				</tr>`
+				
+						}
+					}
+				}
+				this.tbody.html(str)
+			}
+			init(){
+				var that = this
+				this.tbody.on("input","input",function(){
+					var index = $(this).parent().parent().attr("data-index")
+					that.changeNum($(this),index)
+				})
+			}
+			changeCookie(index,fn){
+				var arr = JSON.parse($.cookie("goods"))	
+				for(var i=0;i<arr.length;i++){
+					if(arr[i].id == index){
+						fn(arr,i)
+					}
+				}
+				$.cookie("goods",JSON.stringify(arr))
+			}
+			changeNum(ele,index){
+				this.changeCookie(index,function(arr,i){
+					arr[i].num = ele.val();
+				})
+			}
+			remove(){
+				var that = this;
+				this.tbody.on("click","em",function(){
+					var index = $(this).parent().parent().attr("data-index");
+					
+					that.changeCookie(index,function(arr,i){
+						arr.splice(i,1)
+					})
+					
+					$(this).parent().parent().remove()
+				})
+			}
+		}
+		new Car()
+	</script>
+</html>

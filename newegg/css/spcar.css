@@ -1,0 +1,32 @@
+body{overflow-x: hidden;}
+del{text-decoration: line-through;font-size: 10px;}
+.margin{width:980px;margin:0 auto;font-size: 12px/ 1.5 "";color: #484848;}
+a:hover{text-decoration: underline;}
+header{padding-bottom: 30px;padding-top: 30px;border-bottom: 1px solid #E2E2E2;height:70px;}
+header .logo{display:inline-block;width:318px;height: 65px;margin-right: 40px;float: left;}
+header .welcome{display: inline-block;float: right;}
+header .wel-night{margin-left: 20px;margin-right: 10px;color: #808080;}
+header .welcome p{line-height: 40px;color: #808080;text-indent: 80px;}
+header .welcome p a{color: #1C459D;margin-left: 6px;}
+header .welcome p a:hover{color: #f60;}
+
+.mycar{border: 1px solid #E2E2E2;margin-top: 50px;font: 12px/28px "";width: 920px;}
+.mycar p{border-bottom: solid 1px #E2E2E2;width: 920px;display: block;text-indent: 74px;}
+.mycar p s{font:700 14px/30px "";}
+.mycar p a{position: relative;left: 646px;color: #f60;font-size: 14px;}
+.mycar table{}
+.mycar table thead{border-bottom: 1px solid #E2E2E2;}
+.mycar table thead tr{text-align: center;}
+.mycar table thead tr th{text-align: left;}
+.mycar table thead tr th:nth-child(1){text-align: center;}
+.mycar table tbody td img{margin-top: 12px;margin-bottom: 12px;}
+.mycar table tbody td:nth-child(2){width: 200px;overflow: hidden;display: flex;margin-top: 30px;}
+.mycar table tbody td input{width: 50px;text-align: center;margin-right: 60px;}
+a.jiesuan{display:inline-block;background: #f60;float:right;width: 100px;text-align: center;line-height: 32px;margin: 10px 46px;color: #fff;}
+a.jiesuan:hover{background-color: #ff971c;}
+
+
+#footer{line-height:20px;text-align: center;margin-top: 80px;margin-bottom:50px;}
+#footer p {font-size: 12px;padding: 0 0 10px;display: block;width: 100%;}
+#footer p a{width: 76px;}
+#footer p span a{width: 112px;}

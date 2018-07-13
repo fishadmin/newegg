@@ -1,0 +1,79 @@
+body{overflow-x: hidden;}
+del{text-decoration: line-through;font-size: 10px;}
+.margin{width:980px;margin:0 auto;font-size: 12px/ 1.5 "";color: #484848;position: relative;}
+#top{position: relative;display:flex;font:12px/28px "";color:#484848;background: #f1f1f1;border-bottom: solid 1px #e2e2e2;height:28px;}
+a:hover{text-decoration: underline;}
+#top .top-l{float: left;}
+#top .top-l a{padding: 0 5px;padding-left: 16px;}
+#top .top-l a:nth-child(1){background: url(../img/bgtubiao.png) 0 0 no-repeat;background-position-y: 3px;}
+
+#top .top-l a:nth-child(1):hover{background: url(../img/bgtubiao.png) 0 0 no-repeat;background-position-y: -17px;}
+#top .top-l a:nth-child(2):hover{background: url(../img/bgtubiao.png) 0 0 no-repeat;background-position-y: -157px;}
+#top .top-l a:nth-child(2){padding-left:20px;background: url(../img/bgtubiao.png) 0 0 no-repeat;background-position-y: -132px;}
+#top .top-l a:nth-child(3){padding-left: 16px;background: url(https://s.neweggimages.com.cn/WebResources/2009/Default/Nest/img_v3/topbar_sprite150428.png) 0 -88px no-repeat;}
+#top .top-l a:nth-child(3):hover{background-position: 0 -108px;}
+
+#top .top-r{display: flex;float: right;}
+#top .top-r .welcome{margin-right: 10px;}
+b{margin: 0 8px;}
+#top .top-r .welcome a.wel-night{margin-left: 10px;}
+#top .top-r .welcome{display: flex;}
+#top .top-r .welcome span{padding: 0 5px;}
+#top .top-r .welcome span .inner{display: none;position: relative;z-index: 1;}
+#top .top-r .welcome span.xiala{padding-right: 15px;position: relative;}
+#top .top-r .welcome span.xiala .oper{cursor: pointer;}
+#top .top-r .welcome span.xiala:hover{background: #fff;}
+#top .top-r .welcome span.xiala:hover .inner{display: block;height:110px;border: solid 1px #E2E2E2;padding:2px 10px;background: #fff;}
+#top .top-r .welcome span.xiala .toptip{position: absolute;left:-34px;width:94px;}
+#top .top-r .welcome span.xiala .toptip .login{color: #039;}
+#top .top-r .welcome span.xiala .toptip1{position: absolute;left:-60px;width:120px;z-index: 3;}
+#top .top-r .welcome span.xiala .toptip1 .info strong{font:700 12px/18px "";}
+#top .top-r .welcome span.xiala .toptip1 .info .orange{font:700 14px/18px "";color:#fe7b23;padding-top:6px;}    
+#top .top-r .welcome span.xiala .toptip1 .lianxi a{display:inline-block;background: #4f9ee7;color:#fff;text-align: center;height: 25px;width: 58px;line-height: 25px;margin-bottom:6px;}
+#top .top-r .welcome span .oper s{background: url(../img/xtubiao.png) 0 0 no-repeat;background-position: left -27px;display: inline-block;
+width: 6px;height: 4px;background-position: left -27px;overflow: hidden;margin:4px;position: relative;top:2px;}
+#top .top-r .welcome span.xiala:hover s{transform: rotate(180deg);}
+
+header{display: flex;padding-bottom: 26px;padding-top: 26px;}
+header .logo{display:inline-block;width:318px;height: 65px;margin-right: 40px;}
+header s{font: 24px/60px microsoft yahei;border-left: 1px solid #D9D9D9;padding-left: 26px;}
+
+
+#regist{background: #f9f9f9;padding-bottom: 100px;}
+#regist .vip{position: absolute;right: 10px;top: 10px;font:100 12px "";}
+#regist a img.l-logo{position: relative;left: -10px;}
+#regist .info{display: flex;padding-top: 50px;}
+#regist form{position: relative;overflow: hidden;top:0;left:40px;width:400px;background: #fff;padding: 20px;}
+#regist form p{font: 100 14px/24px "";}
+#regist form h3{font: 700 18px/28px "";text-align: center;}
+#regist form table{padding-left: 100px;}
+/*#regist {font:700 20px "";color:dodgerblue;padding-left: 80px;}*/
+#regist form tr{height: 50px;}
+#regist form td,s{text-decoration:none;font:14px "";color:#666;width: 110px;}
+#regist form i{color:red;padding: 10px;}
+#regist form input{background: #F9F9F9;width:200px;vertical-align: middle;height: 31px;border: 1px solid #CFCFCF;height: 30px;line-height: 30px;text-indent: 5px;}
+#regist form span{font: 14px/20px "";background: white;}
+#regist form #tishi{color: #f60;margin-left: 80px;margin-top: 10px;background: #F9F9F9;line-height: 28px;}
+#regist form #inyzm{width: 100px;height: 30px; line-height: 20px; border: 1px solid black;}
+#regist form #yzm{display:inline-block;text-align:center;width: 50px;height: 30px;line-height: 30px;margin-left: 30px;color: black;}
+#regist form .zhuce{padding :20px 0 10px;;}
+#regist form #btn{display:block;width: 200px;font: 16px/20px "";border:1px solid #eee;border-radius:5px;background: #f60;color: #fff;}
+#regist form .te{display: flex;}
+#regist form ul{width: 200px;position: relative;left: 30px;top:10px;display: flex;justify-content: center;margin-left: -30px;}
+#regist form li{margin:0;text-align:center;list-style: none;width: 66px;height: 30px;line-height: 30px;background: #EEEEEE;border-left: 1px solid #E5E5E5;}
+#regist form li:nth-child(1){border-left: 0;}
+#regist form #agreen{width: 20px;}
+
+
+
+#footer-img .item1{display: inline-block;background: url(http://c6.neweggimages.com.cn/WebResources/2009/Default/Nest/img_v3/certi20150925.png) no-repeat 0 0;height: 45px;margin: 0 3px 10px 2px;}
+#footer-img .item2{display: inline-block;background: url(http://c6.neweggimages.com.cn/WebResources/2009/Default/Nest/img_v3/certi20150925.png) no-repeat 0 -92px;height: 45px;margin: 0 3px 10px 2px;}
+#footer-img .item3{display: inline-block;background: url(http://c6.neweggimages.com.cn/WebResources/2009/Default/Nest/img_v3/certi20150925.png) no-repeat 0 -276px;height: 45px;margin: 0 3px 10px 2px;}
+#footer-img .item4{display: inline-block;background: url(http://c6.neweggimages.com.cn/WebResources/2009/Default/Nest/img_v3/certi20150925.png) no-repeat 0 -326px;height: 45px;margin: 0 3px 10px 2px;}
+#footer-img .item5{display: inline-block;background: url(http://c6.neweggimages.com.cn/WebResources/2009/Default/Nest/img_v3/certi20150925.png) no-repeat 0 -376px;height: 45px;margin: 0 3px 10px 2px;}
+
+#footer-img{line-height:20px;text-align: center;margin-top: 80px;margin-bottom:50px;}
+#footer-img a{display: inline-block;width: 120px;}
+#footer-img p {font-size: 12px;padding: 0 0 10px;display: block;width: 100%;}
+#footer-img p a{width: 76px;}
+#footer-img p span a{width: 112px;}
